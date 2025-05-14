@@ -23,7 +23,11 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    icons: "dardanova.ico",
+    icons: {
+      icon: "/dardanova.ico",
+      shortcut: "/dardanova.ico",
+      apple: "/dardanova.ico",
+    },
   };
 }
 
