@@ -1,0 +1,132 @@
+{
+  "Metadata": {
+    "title": "Dardanova | Global Odaklı Mobil ve Web Çözümleriniz",
+    "description": "Dardanova, modern yazılım çözümleri sunan bir teknoloji danışmanlık firmasıdır. Yüksek kaliteli yazılım ürünleri oluşturma konusunda tutkulu deneyimli yazılım mühendisleri ve tasarımcılardan oluşan bir ekibiz."
+  },
+  "Header": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "blog": "Blog",
+    "contact": "Bize Ulaşın"
+  },
+  "Home": {
+    "title": "Global Odaklı Mobil ve Web Çözümleriniz",
+    "description": "Fikirden yayına ölçeklenebilir mobil ve web çözümleri sunuyor, küresel pazardaki başarınızı hızlandırıyoruz.",
+    "servicesTitle": "Hizmetlerimiz",
+    "services": {
+      "web": "Web Uygulamaları",
+      "mobile": "Mobil ve Desktop Uygulamaları",
+      "mvp": "MVP & Prototip Oluşturma",
+      "maintenance": "Bakım, Destek & Optimizasyon"
+    },
+    "servicesDescriptions": {
+      "web": "Modern ve ölçeklenebilir web uygulamaları geliştiriyoruz. Next.js, React ve diğer modern teknolojilerle performanslı çözümler sunuyoruz.",
+      "mobile": "iOS, Android ve Windows için native uygulamalar geliştiriyoruz. Cross-platform çözümlerle geniş kullanıcı kitlesine ulaşmanızı sağlıyoruz.",
+      "mvp": "Fikirlerinizi hızlıca hayata geçiriyoruz. Minimum Viable Product ve prototiplerle pazar testi yapmanızı sağlıyoruz.",
+      "maintenance": "Mevcut sistemlerinizi optimize ediyor, performans iyileştirmeleri yapıyor ve 7/24 teknik destek sağlıyoruz."
+    },
+    "features": {
+      "innovative": {
+        "title": "Yenilikçi & Akıllı Çözümler",
+        "description": "En son teknolojileri kullanarak işletmenizin ihtiyaçlarına özel akıllı ve geleceğe yönelik yazılım çözümleri geliştiriyoruz. Yenilikçi yaklaşımımız, esneklik, verimlilik ve sorunsuz entegrasyon sağlayarak dijital dünyada öne çıkmanızı sağlar."
+      },
+      "scalable": {
+        "title": "Ölçeklenebilir & Güvenilir Altyapı",
+        "description": "İşletmenizle birlikte büyüyen güvenli ve yüksek performanslı altyapılar inşa ediyoruz. Çözümlerimiz, güvenilirlik, sorunsuz operasyonlar ve artan taleplere uyum sağlama esnekliği sunarak uzun vadeli başarı için sağlam bir temel oluşturur."
+      },
+      "customer": {
+        "title": "Müşteri Odaklı Yaklaşım",
+        "description": "Geliştirmenin her aşamasında ihtiyaçlarınızı önceliklendiriyor, hedeflerinizle uyumlu özel çözümler üretiyoruz. Müşteri odaklı yaklaşımımız, sorunsuz işbirliği, sürekli destek ve işletmeniz için gerçek değer sunma taahhüdü sağlar."
+      },
+      "development": {
+        "title": "Hızlı & Verimli Geliştirme Süreci",
+        "description": "Akıcı iş akışlarımız ve çevik metodolojilerimizle, performanstan ödün vermeden zamanında yüksek kaliteli çözümler sunuyoruz. Verimli geliştirme sürecimiz, hızlı dağıtım, sürekli iyileştirme ve değişen iş ihtiyaçlarına uyum sağlama imkanı sunar."
+      }
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "questions": {
+        "difference": {
+          "question": "Dardanova'yı diğer ajanslardan ayıran nedir?",
+          "answer": "Dardanova, mobil, masaüstü ve web alanında 'end-to-end' çözüm sunarken startup çevikliğini kurumsal deneyimle birleştirir. Hızlı prototiplemeden ölçeklenebilir mimarilere kadar her adımı sizinle iş birliği içinde tasarlar."
+        },
+        "technologies": {
+          "question": "Hangi teknolojilerde uzmansınız?",
+          "answer": "• Mobil: React Native, Flutter, Swift, Kotlin\n• Web: Next.js, React, TypeScript\n• Masaüstü: Electron\n• Bulut & DevOps: AWS, GCP, Azure, CI/CD entegrasyonları"
+        },
+        "process": {
+          "question": "Bir projeye nasıl başlıyorsunuz?",
+          "answer": "1. Keşif & İhtiyaç Analizi\n2. Teknik ve UX danışmanlığı\n3. MVP prototip geliştirme\n4. Test & iyileştirme\n5. Yayın ve bakım süreçleri"
+        },
+        "timeline": {
+          "question": "Proje teslim süreleri ne kadar sürer?",
+          "answer": "Projenin kapsamına göre değişir; küçük bir MVP 4–6 hafta, tam kapsamlı çözümler ise 3–6 ay arasında tamamlanabilir. Kesin zaman çizelgesini ihtiyaç analizinden sonra paylaşırız."
+        },
+        "pricing": {
+          "question": "Fiyatlandırma nasıl yapıyorsunuz?",
+          "answer": "• Saatlik danışmanlık – ihtiyaç ve süreye göre\n• Proje bazlı sabit ücret – kapsam ve teslim tarihine göre\n• Uzun dönemli bakım & destek aboneliği – aylık paketler halinde"
+        },
+        "support": {
+          "question": "Destek ve bakım hizmetleriniz neleri kapsıyor?",
+          "answer": "• Kod güncellemeleri\n• Performans ve güvenlik optimizasyonu\n• 7/24 acil destek (ek paket)\n• Yeni özellik ekleme ve versiyon yükseltme"
+        },
+        "international": {
+          "question": "Uluslararası müşterilere hizmet veriyor musunuz?",
+          "answer": "Evet. İngilizce ve Türkçe dillerinde projeyi yönetiyor, global pazara uygun çok dilli uygulamalar geliştiriyoruz. İletişim için saat dilimi farkını da hesaba katarak esnek çalışma imkânı sunarız."
+        }
+      }
+    }
+  },
+  "Footer": {
+    "contact": "Bize Ulaşın",
+    "letsTalk": "Hadi birlikte projemize başlayalım!",
+    "description": "Global Odaklı Mobil ve Web Çözümleriniz",
+    "company": "Şirket",
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "blog": "Blog",
+    "contactUs": "Bize Ulaşın",
+    "ourServices": "Hizmetlerimiz",
+    "webDevelopment": "Web Geliştirme",
+    "mobileDevelopment": "Mobil Geliştirme",
+    "desktopDevelopment": "Masaüstü Geliştirme",
+    "uiuxDesign": "UI/UX Tasarım",
+    "seoServices": "SEO Hizmetleri",
+    "contactInfo": "İletişim Bilgileri",
+    "address": "Ferko Signature Plaza, Esentepe, Büyükdere Cd. No:175 A Blok, 34394 Şişli/İstanbul"
+  },
+  "About": {
+    "title": "Hakkımızda",
+    "paragraph1": "2019 yılında kurulan Dardanova, Türkiye'nin önde gelen üniversitelerinden (Boğaziçi, Koç, İTÜ) mezun uzman kadrosuyla yola çıktı. Kuruluşumuzdan bu yana hem yerel hem de global pazarda binlerce kullanıcıya ulaşan ürünler geliştirdik. Küçük bir ekip olarak başladığımız bu serüvende, bugün dünya çapında milyonlarca kullanıcıya hizmet veren çözümler sunuyoruz.",
+    "paragraph2": "Müşterilerimizin fikirlerinden yola çıkarak sıfırdan MVP tasarlıyor; yayına alma, güncelleme, SEO çalışmaları ve kesintisiz bakım süreçleriyle ürününüzü her an güncel tutuyoruz. Teknik ekip yükünüzü hafifleterek, en modern mobil, web ve masaüstü teknolojilerini kullanıyor, süreç boyunca uçtan uca destek sağlıyoruz.",
+    "paragraph3": "Sektörü yakından takip eden 7 kişilik ekibimiz; fintech'den sağlık uygulamalarına, e-ticaretten kurumsal yazılımlara dek pek çok farklı alanda deneyim kazandı. Hedef kitlenizi doğru analiz edip, kullanıcı odaklı UI/UX tasarımı ve ölçeklenebilir mimarilerle ürününüzü bir adım öne taşıyoruz.",
+    "paragraph4": "Dardanova olarak; fikirden yayına, yayından daha ileriye giden her adımda yanınızdayız."
+  },
+  "Contact": {
+    "title": "İletişim",
+    "address": "Adres",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "phoneOptional": "Telefon (Opsiyonel)",
+    "fullName": "İsim Soyisim",
+    "subject": "Konu",
+    "message": "Mesaj",
+    "send": "Gönder",
+    "successMessage": "Mesajınız başarıyla gönderildi.",
+    "successDescription": "Ekibimiz en kısa sürede size geri dönecektir.",
+    "form": {
+      "fullNamePlaceholder": "İsim Soyisim",
+      "emailPlaceholder": "ornek@email.com",
+      "phonePlaceholder": "+90 XXX XXX XX XX",
+      "subjectPlaceholder": "Uygulamanızın Konusu",
+      "messagePlaceholder": "Uygulamanızı kısaca açıklayınız..."
+    },
+    "validation": {
+      "fullNameMin": "İsim en az 2 karakter olmalıdır.",
+      "emailInvalid": "Geçerli bir e-posta adresi giriniz.",
+      "subjectMin": "Konu en az 5 karakter olmalıdır.",
+      "messageMin": "Mesaj en az 10 karakter olmalıdır."
+    }
+  }
+}
