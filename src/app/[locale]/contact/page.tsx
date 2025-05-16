@@ -54,8 +54,11 @@ const Contact = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // Backend bağlantısı daha sonra eklenecek
-    console.log(values);
+    await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(values),
+    });
+
     toast.success(t("successMessage"), {
       description: t("successDescription"),
     });
@@ -109,7 +112,9 @@ const Contact = () => {
 
           <div className="mt-8">
             <LoadScript
-              googleMapsApiKey="AIzaSyBZnFMtkhdESs4PK1B5DJaIyAaNhtpexdc"
+              googleMapsApiKey={
+                process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string
+              }
               language={locale}
             >
               <GoogleMap
