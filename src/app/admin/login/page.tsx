@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
 
     try {
       await signIn(email, password);
-      router.replace("/admin/dashboard");
+      router.replace("/admin/blogs");
     } catch (error) {
       if (error instanceof FirebaseError) {
         setError(
@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
 
   useEffect(() => {
     if (user) {
-      router.replace("/admin/dashboard");
+      router.replace("/admin/blogs");
     }
   }, [user]);
 

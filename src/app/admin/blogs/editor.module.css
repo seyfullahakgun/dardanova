@@ -1,0 +1,224 @@
+.editorContainer {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background-color: #ffffff;
+  min-height: 400px;
+  overflow-y: auto;
+}
+
+.editorContainer :global(.mdxeditor) {
+  color: #374151;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Toolbar Stilleri */
+.editorContainer :global(.mdxeditor-toolbar) {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  padding: 8px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.editorContainer :global(.mdxeditor-toolbar button) {
+  background-color: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  color: #374151;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+}
+
+.editorContainer :global(.mdxeditor-toolbar button:hover) {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.editorContainer :global(.mdxeditor-toolbar button.active) {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* Editör İçerik Stilleri */
+.editorContainer :global(.mdxeditor-content) {
+  padding: 16px;
+}
+
+/* Liste Stilleri */
+.editorContainer :global(.mdxeditor ul) {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+.editorContainer :global(.mdxeditor ol) {
+  list-style-type: decimal;
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+.editorContainer :global(.mdxeditor li) {
+  margin: 4px 0;
+  padding-left: 4px;
+}
+
+.editorContainer :global(.mdxeditor li::marker) {
+  color: #6b7280;
+}
+
+/* Başlık Stilleri */
+.editorContainer :global(.mdxeditor h1) {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 24px 0 16px;
+  color: #111827;
+}
+
+.editorContainer :global(.mdxeditor h2) {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 20px 0 14px;
+  color: #111827;
+}
+
+.editorContainer :global(.mdxeditor h3) {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 16px 0 12px;
+  color: #111827;
+}
+
+/* Paragraf Stilleri */
+.editorContainer :global(.mdxeditor p) {
+  margin: 8px 0;
+}
+
+/* Link Stilleri */
+.editorContainer :global(.mdxeditor a) {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.editorContainer :global(.mdxeditor a:hover) {
+  text-decoration: underline;
+}
+
+/* Kod Stilleri */
+.editorContainer :global(.mdxeditor code) {
+  background-color: #f3f4f6;
+  color: #111827;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 0.9em;
+}
+
+.editorContainer :global(.mdxeditor pre) {
+  background-color: #f3f4f6;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 16px 0;
+  border: 1px solid #e5e7eb;
+}
+
+.editorContainer :global(.mdxeditor pre code) {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Codeblock Dil Seçici */
+.editorContainer :global(.mdxeditor-codeblock-language-select) {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.9em;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.editorContainer :global(.mdxeditor-codeblock-language-select:hover) {
+  background-color: #e5e7eb;
+}
+
+/* Codeblock İçerik Alanı */
+.editorContainer :global(.mdxeditor-codeblock-content) {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+  tab-size: 2;
+}
+
+/* Codeblock Satır Numaraları */
+.editorContainer :global(.mdxeditor-codeblock-line-number) {
+  color: #9ca3af;
+  padding-right: 16px;
+  user-select: none;
+}
+
+/* Codeblock Seçim */
+.editorContainer :global(.mdxeditor-codeblock *::selection) {
+  background-color: #bfdbfe;
+  color: #111827;
+}
+
+/* Alıntı Stilleri */
+.editorContainer :global(.mdxeditor blockquote) {
+  border-left: 4px solid #e5e7eb;
+  background-color: #f9fafb;
+  padding: 8px 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+  color: #6b7280;
+}
+
+/* Tablo Stilleri */
+.editorContainer :global(.mdxeditor table) {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+  border: 1px solid #e5e7eb;
+}
+
+.editorContainer :global(.mdxeditor th),
+.editorContainer :global(.mdxeditor td) {
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.editorContainer :global(.mdxeditor th) {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Resim Stilleri */
+.editorContainer :global(.mdxeditor img) {
+  max-width: 100%;
+  height: auto;
+  margin: 16px 0;
+  border-radius: 6px;
+}
+
+/* Seçim Stilleri */
+.editorContainer :global(.mdxeditor *::selection) {
+  background-color: #bfdbfe;
+  color: #111827;
+}
+
+/* Placeholder Stilleri */
+.editorContainer :global(.mdxeditor [data-placeholder]) {
+  color: #9ca3af;
+}

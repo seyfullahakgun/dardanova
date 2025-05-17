@@ -86,7 +86,7 @@ const Contact = () => {
             <MapPin className="w-6 h-6 text-primary" />
             <div>
               <h3 className="font-semibold">{t("address")}</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-200">
                 Ferko Signature Plaza, Esentepe, Büyükdere Cd. No:175 A Blok,{" "}
                 <br />
                 34394 Şişli/İstanbul
@@ -98,7 +98,7 @@ const Contact = () => {
             <Mail className="w-6 h-6 text-primary" />
             <div>
               <h3 className="font-semibold">{t("email")}</h3>
-              <p className="text-gray-600">info@dardanova.com</p>
+              <p className="text-gray-200">info@dardanova.com</p>
             </div>
           </div>
 
@@ -106,7 +106,7 @@ const Contact = () => {
             <Phone className="w-6 h-6 text-primary" />
             <div>
               <h3 className="font-semibold">{t("phone")}</h3>
-              <p className="text-gray-600">+90 (544) 282 73 93</p>
+              <p className="text-gray-200">+90 (544) 282 73 93</p>
             </div>
           </div>
 

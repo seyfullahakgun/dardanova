@@ -128,5 +128,11 @@
       "subjectMin": "Konu en az 5 karakter olmalıdır.",
       "messageMin": "Mesaj en az 10 karakter olmalıdır."
     }
+  },
+  "Blog": {
+    "title": "Blog Yazıları",
+    "readMore": "Tamamını Oku",
+    "noPosts": "Henüz yayınlanmış blog yazısı bulunmuyor.",
+    "error": "Blog yazıları yüklenirken bir hata oluştu."
   }
 }

@@ -6,15 +6,25 @@ import {
   signInWithEmailAndPassword,
   signOut as firebaseSignOut,
   onAuthStateChanged,
+  updateProfile,
+  updatePassword,
+  reauthenticateWithCredential,
+  EmailAuthProvider,
 } from "firebase/auth";
 import { auth } from "@/lib/firebaseClient";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "@/lib/firebaseClient";
 import Cookies from "js-cookie";
+import { toast } from "sonner";
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
+  updateUserProfile: (data: { displayName?: string; photoURL?: string }) => Promise<void>;
+  updateUserPassword: (currentPassword: string, newPassword: string) => Promise<void>;
+  uploadProfileImage: (file: File) => Promise<string>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -65,11 +75,46 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const uploadProfileImage = async (file: File): Promise<string> => {
+    if (!user) throw new Error("Kullanıcı giriş yapmamış");
+    const storageRef = ref(storage, `profile-images/${user.uid}/${Date.now()}-${file.name}`);
+    await uploadBytes(storageRef, file);
+    return getDownloadURL(storageRef);
+  };
+
+  const updateUserProfile = async (data: { displayName?: string; photoURL?: string }) => {
+    if (!user) throw new Error("Kullanıcı giriş yapmamış");
+    try {
+      await updateProfile(user, data);
+      setUser({ ...user, ...data });
+      toast.success("Profil başarıyla güncellendi");
+    } catch (error) {
+      toast.error("Profil güncellenirken bir hata oluştu");
+      throw error;
+    }
+  };
+
+  const updateUserPassword = async (currentPassword: string, newPassword: string) => {
+    if (!user) throw new Error("Kullanıcı giriş yapmamış");
+    try {
+      const credential = EmailAuthProvider.credential(user.email!, currentPassword);
+      await reauthenticateWithCredential(user, credential);
+      await updatePassword(user, newPassword);
+      toast.success("Şifre başarıyla güncellendi");
+    } catch (error) {
+      toast.error("Şifre güncellenirken bir hata oluştu");
+      throw error;
+    }
+  };
+
   const value = {
     user,
     loading,
     signIn,
     signOut,
+    updateUserProfile,
+    updateUserPassword,
+    uploadProfileImage,
   };
 
   return (

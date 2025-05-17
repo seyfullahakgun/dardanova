@@ -24,7 +24,7 @@ export default function middleware(request: NextRequest) {
 
     // Eğer kullanıcı giriş yapmışsa ve login sayfasına gitmeye çalışıyorsa
     if (isLoginPath && authCookie) {
-      return NextResponse.redirect(new URL("/admin/dashboard", request.url));
+      return NextResponse.redirect(new URL("/admin/blogs", request.url));
     }
 
     // Admin sayfaları için locale kontrolünü atla

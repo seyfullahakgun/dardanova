@@ -5,7 +5,7 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["picsum.photos"], // ← Buraya ekleyin
+    domains: ["firebasestorage.googleapis.com"],
   },
 };
 

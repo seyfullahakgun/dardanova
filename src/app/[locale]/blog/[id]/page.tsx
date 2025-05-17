@@ -1,22 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "@/lib/firebaseClient";
-import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
 import { use } from "react";
-
-interface Post {
-  id: string;
-  title: string;
-  content: string;
-  imageUrl: string;
-  createdAt: Date;
-  updatedAt: Date;
-  isPublished: boolean;
-}
+import { Clock, Eye, ArrowLeft, Calendar, User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import { Post } from "@/types";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
 
 export default function BlogPostPage({
   params,
@@ -28,16 +22,56 @@ export default function BlogPostPage({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const mdComponents = {
+    h1: ({ ...props }) => (
+      <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />
+    ),
+    h2: ({ ...props }) => (
+      <h2 className="text-2xl font-semibold mt-6 mb-3" {...props} />
+    ),
+    p: ({ ...props }) => <p className="mb-4 leading-relaxed" {...props} />,
+    a: ({ ...props }) => (
+      <a className="text-blue-600 hover:underline" {...props} />
+    ),
+    ul: ({ ...props }) => (
+      <ul className="list-disc list-inside mb-4" {...props} />
+    ),
+    li: ({ ...props }) => <li className="mb-2" {...props} />,
+    // istediğiniz diğer etiketler...
+    blockquote: ({ ...props }) => (
+      <div className="border-l-4 border-gray-300 pl-4 mb-4" {...props} />
+    ),
+  };
+
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const postDoc = await getDoc(doc(db, "posts", id));
-
-        console.log(postDoc.data());
+        const postRef = doc(db, "posts", id);
+        const postDoc = await getDoc(postRef);
 
         if (!postDoc.exists()) {
           setError("Blog yazısı bulunamadı.");
           return;
+        }
+
+        // localStorage'dan görüntülenme durumunu kontrol et
+        const viewedPosts = JSON.parse(
+          localStorage.getItem("viewedPosts") || "{}"
+        );
+        const lastViewTime = viewedPosts[id];
+        const now = Date.now();
+        const ONE_DAY = 24 * 60 * 60 * 1000; // 24 saat
+
+        // Eğer son görüntüleme 24 saatten eskiyse veya hiç görüntülenmemişse
+        if (!lastViewTime || now - lastViewTime > ONE_DAY) {
+          const currentViews = postDoc.data().views || 0;
+          await updateDoc(postRef, {
+            views: currentViews + 1,
+          });
+
+          // localStorage'ı güncelle
+          viewedPosts[id] = now;
+          localStorage.setItem("viewedPosts", JSON.stringify(viewedPosts));
         }
 
         const postData = {
@@ -45,6 +79,7 @@ export default function BlogPostPage({
           ...postDoc.data(),
           createdAt: postDoc.data().createdAt?.toDate(),
           updatedAt: postDoc.data().updatedAt?.toDate(),
+          views: postDoc.data().views || 0,
         } as Post;
 
         if (!postData.isPublished) {
@@ -66,8 +101,25 @@ export default function BlogPostPage({
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+      <div className="container mx-auto px-4 py-12 mt-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="animate-pulse space-y-8">
+            <div className="h-12 bg-slate-200 rounded w-3/4" />
+            <div className="flex items-center space-x-4">
+              <div className="h-10 w-10 bg-slate-200 rounded-full" />
+              <div className="space-y-2">
+                <div className="h-4 bg-slate-200 rounded w-32" />
+                <div className="h-4 bg-slate-200 rounded w-24" />
+              </div>
+            </div>
+            <div className="h-[400px] bg-slate-200 rounded-lg" />
+            <div className="space-y-4">
+              <div className="h-4 bg-slate-200 rounded w-full" />
+              <div className="h-4 bg-slate-200 rounded w-5/6" />
+              <div className="h-4 bg-slate-200 rounded w-4/6" />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -88,51 +140,66 @@ export default function BlogPostPage({
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Link
-        href="/blog"
-        className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-8"
-      >
-        <svg
-          className="mr-2 h-4 w-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        Blog sayfasına dön
-      </Link>
-
+    <div className="container mx-auto px-4 py-12 mt-16">
       <article className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">{post.title}</h1>
+        {/* Header Section */}
+        <header className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+            {post.title}
+          </h1>
 
-        <div className="relative h-[400px] w-full mb-8 rounded-lg overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-gray-300">
+            <div className="flex items-center space-x-2">
+              <User className="w-5 h-5" />
+              <span>{post.authorName}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Calendar className="w-5 h-5" />
+              <span>{post.createdAt?.toLocaleDateString("tr-TR")}</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Clock className="w-5 h-5" />
+              <span>{Math.ceil(post.content.length / 1000)} dakika okuma</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Eye className="w-5 h-5" />
+              <span>{post.views} görüntülenme</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Featured Image */}
+        <div className="relative h-[400px] w-full mb-12 rounded-lg overflow-hidden">
           <Image
             src={post.imageUrl || "/placeholder-image.jpg"}
             alt={post.title}
             fill
             className="object-cover"
+            priority
           />
         </div>
 
-        <div className="prose max-w-none">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
-        </div>
+        {/* Content */}
+        <article className="max-w-none mb-12">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={mdComponents}
+            rehypePlugins={[rehypeHighlight]}
+          >
+            {post.content}
+          </ReactMarkdown>
+        </article>
 
-        <div className="mt-8 pt-8 border-t text-sm text-gray-500">
-          <p>
-            Yayınlanma Tarihi: {post.createdAt?.toLocaleDateString("tr-TR")}
-          </p>
-          {post.updatedAt && post.updatedAt > post.createdAt && (
-            <p>Son Güncelleme: {post.updatedAt?.toLocaleDateString("tr-TR")}</p>
-          )}
-        </div>
+        {/* Footer */}
+        <footer className="border-t pt-8">
+          <Link
+            href="/blog"
+            className="inline-flex items-center text-gray-600 hover:text-gray-100 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Blog yazılarına geri dön
+          </Link>
+        </footer>
       </article>
     </div>
   );

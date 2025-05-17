@@ -129,5 +129,11 @@
       "subjectMin": "Subject must be at least 5 characters.",
       "messageMin": "Message must be at least 10 characters."
     }
+  },
+  "Blog": {
+    "title": "Blog Posts",
+    "readMore": "Read More",
+    "noPosts": "No published blog posts yet.",
+    "error": "An error occurred while loading blog posts."
   }
 }
